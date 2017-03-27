@@ -1,0 +1,17 @@
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// color palette;
+@import "./resources/assets/sass/palette.scss";
+
+// layouts
+@import "./resources/views/layouts/base/base";
+
+// pages
+@import "./resources/views/pages/home/home";
+@import "./resources/views/pages/agencies/agencies";
+
+// blocks
+@import "./resources/views/blocks/header/header";
+@import "./resources/views/blocks/navbar/navbar";
+@import "./resources/views/blocks/footer/footer";
+@import "./resources/views/blocks/return/return";
