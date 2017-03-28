@@ -5,12 +5,16 @@ const concat = require('gulp-concat');
 const browserify = require('gulp-browserify');
 const sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('watch_scss', function () {
-    gulp.watch(["./resources/**/**/**/*.scss"], ['scss']);
+gulp.task('watch_scss', ['scss'], function () {
+    gulp.watch(["./resources/**/**/**/*.scss"]);
 });
 
-gulp.task('watch_scripts', function () {
-    gulp.watch(["./resources/**/**/**/*.js"], ['scripts']);
+gulp.task('watch_scripts', ['scripts'], function () {
+    gulp.watch(["./resources/**/**/**/*.js"]);
+});
+
+gulp.task('watch_img', ['images'], function () {
+    gulp.watch(["./resources/**/**/**/*.jpg", "./resources/**/**/**/*.png", "./resources/**/**/**/*.png"]);
 });
 
 gulp.task('scss', function () {
@@ -29,4 +33,9 @@ gulp.task('scripts', function() {
             insertGlobals : true
         }))
         .pipe(gulp.dest('./public/js/'))
+});
+
+gulp.task('images', function() {
+    return gulp.src('./resources/assets/*')
+        .pipe(gulp.dest('./public/img/'))
 });

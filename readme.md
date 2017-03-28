@@ -24,6 +24,7 @@
 - composer install
 - npm install
 - cp .env.example .env
+- php artisan key:generate
 - gulp watch_scss
 - gulp watch_scripts
 - php artisan serve
