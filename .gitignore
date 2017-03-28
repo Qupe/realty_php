@@ -16,3 +16,6 @@ storage/*.key
 .env.*.php
 .env.php
 app/storage/
+public/css
+public/js
+public/img/

@@ -1,1 +1,0 @@
-{"version":3,"names":[],"mappings":"","sources":["app.js"],"sourcesContent":["global.jQuery = require(\"jquery\");\nrequire('bootstrap-sass');"],"file":"app.js"}

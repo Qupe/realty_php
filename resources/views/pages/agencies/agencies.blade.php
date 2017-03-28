@@ -8,16 +8,15 @@
     <table class="agencies table table-hover">
         @foreach ($users as $user)
             <tr>
-                <td class="agencies__item-logo">
-
-                </td>
                 <td class="agencies__item-name">
                     <a href="/agency/{{ $user['id'] }}">{{ $user['name'] }}</a>
                 </td>
                 <td class="agencies__item-description">
-                    {{ $user['description'] }}
+                    {{ $user['address'] }}
                 </td>
-            </tr>
+                <td class="agencies__item-email">
+                    <a href="mailto:{{ $user['email'] }}" >{{ $user['email'] }}</a>
+                </td>
         @endforeach
     </table>
 @endsection

@@ -19,22 +19,31 @@
         </div>
         <div class="col-lg-5">
             <dl class="dl-horizontal">
-                <dt>Адрес:</dt>
-                <dd>
-                    {{ $agency['address'] }}
-                </dd>
-                <dt>Телефон:</dt>
-                <dd>
-                    <a href="tel:{{ $agency['phone'] }}">{{ $agency['phone'] }}</a>
-                </dd>
-                <dt>E-mail:</dt>
-                <dd>
-                    <a href="mailto:{{ $agency['email'] }}" target="_blank">{{ $agency['email'] }}</a>
-                </dd>
-                <dt>Сайт:</dt>
-                <dd>
-                    <a href="http://{{ $agency['site'] }}" target="_blank">{{ $agency['site'] }}</a>
-                </dd>
+                @if ($agency['address'])
+                    <dt>Адрес:</dt>
+                    <dd>
+                        {{ $agency['address'] }}
+                        <a href=""></a>
+                    </dd>
+                @endif
+                @if ($agency['phone'])
+                    <dt>Телефон:</dt>
+                    <dd>
+                        <a href="tel:{{ $agency['phone'] }}">{{ $agency['phone'] }}</a>
+                    </dd>
+                @endif
+                @if ($agency['email'])
+                    <dt>E-mail:</dt>
+                    <dd>
+                        <a href="mailto:{{ $agency['email'] }}" target="_blank">{{ $agency['email'] }}</a>
+                    </dd>
+                @endif
+                @if ($agency['site'])
+                    <dt>Сайт:</dt>
+                    <dd>
+                        <a href="http://{{ $agency['site'] }}" target="_blank">{{ $agency['site'] }}</a>
+                    </dd>
+                @endif
             </dl>
         </div>
     </div>
