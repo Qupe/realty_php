@@ -18,3 +18,4 @@ Route::get('/developer/{id}', 'Developer\DeveloperController@render');
 Route::get('/developers/', 'Developer\DevelopersController@render');
 Route::get('/realtor/{id}', 'Realtor\RealtorController@render');
 Route::get('/realtors/', 'Realtor\RealtorsController@render');
+Route::auth('/login', 'Auth\AuthController@showLoginForm');
