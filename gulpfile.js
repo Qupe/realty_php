@@ -4,6 +4,8 @@ const sass = require('gulp-sass');
 const concat = require('gulp-concat');
 const browserify = require('gulp-browserify');
 const sourcemaps = require('gulp-sourcemaps');
+const flatten = require('gulp-flatten');
+
 
 gulp.task('watch_scss', ['scss'], function () {
     gulp.watch(["./resources/**/**/**/*.scss"]);
@@ -14,7 +16,7 @@ gulp.task('watch_scripts', ['scripts'], function () {
 });
 
 gulp.task('watch_img', ['images'], function () {
-    gulp.watch(["./resources/**/**/**/*.jpg", "./resources/**/**/**/*.png", "./resources/**/**/**/*.png"]);
+    gulp.watch(["./resources/**/**/**/**/*.{jpg,gif,svg,png}"]);
 });
 
 gulp.task('scss', function () {
@@ -36,6 +38,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('images', function() {
-    return gulp.src('./resources/assets/*')
+    return gulp.src("./resources/**/**/**/**/*.{jpg,gif,svg,png}")
+        .pipe(flatten())
         .pipe(gulp.dest('./public/img/'))
 });
