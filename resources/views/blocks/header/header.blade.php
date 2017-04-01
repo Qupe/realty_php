@@ -7,8 +7,13 @@
                 <a href="/developers">Застройщики</a>
             </div>
             <div class="header__line pull-right">
-                <a href="#signin">Вход</a>
-                <a href="#signout">Регистрация</a>
+                @if (Auth::guest())
+                    <a href="/login">Вход</a>
+                    <a href="/register">Регистрация</a>
+                @else
+                    <a href="/profile">{{ Auth::user()->name }}</a>
+                    <a href="/logout">Выйти</a>
+                @endif
             </div>
         </div>
     </div>
