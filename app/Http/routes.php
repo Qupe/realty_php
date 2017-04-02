@@ -12,10 +12,10 @@
 */
 
 Route::get('/', 'Home\HomeController@render');
-Route::get('/agency/{id}', 'Agency\AgencyController@render');
+Route::get('/agencies/agency/{id}', 'Agency\AgencyController@render');
 Route::get('/agencies/', 'Agency\AgenciesController@render');
 Route::get('/developer/{id}', 'Developer\DeveloperController@render');
 Route::get('/developers/', 'Developer\DevelopersController@render');
 Route::get('/realtor/{id}', 'Realtor\RealtorController@render');
 Route::get('/realtors/', 'Realtor\RealtorsController@render');
-Route::auth('/login', 'Auth\AuthController@showLoginForm');
+Route::auth();

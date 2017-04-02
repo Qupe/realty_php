@@ -1,8 +1,6 @@
 @extends('layouts.container.container')
 
-@section('title')
-    {{ $title }}
-@endsection
+@section('title', $agency['name'])
 
 @section('content')
     @include('blocks.return.return', [
