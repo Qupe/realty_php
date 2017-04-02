@@ -12,7 +12,7 @@ class CreateAgenciesTable extends Migration
      */
     public function up()
     {
-        Schema::table('agencies', function (Blueprint $table) {
+        Schema::create('agencies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('phone');
