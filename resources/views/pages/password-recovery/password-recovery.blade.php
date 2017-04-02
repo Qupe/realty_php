@@ -6,7 +6,8 @@
     <div class="page-header text-center">
         <h3>Восстановление пароля</h3>
     </div>
-    <form class="password form-horizontal col-md-3" role="form" method="POST" action="{{ url('/password/email') }}">
+    <form class="password-recovery form-horizontal col-md-3" role="form" method="POST"
+          action="{{ url('/password/email') }}">
         @if (session('status'))
             <div class="form-group alert alert-success">
                 {{ session('status') }}
@@ -19,8 +20,8 @@
                    placeholder="E-Mail">
             @if ($errors->has('email'))
                 <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
+                    {{ $errors->first('email') }}
+                </span>
             @endif
         </div>
 

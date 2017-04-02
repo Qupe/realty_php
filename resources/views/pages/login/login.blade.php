@@ -6,6 +6,7 @@
     <div class="page-header text-center">
         <h3>Войти</h3>
     </div>
+
     <form class="login form-horizontal col-md-3" role="form" method="POST" action="{{ url('/login') }}">
         {{ csrf_field() }}
 
@@ -14,7 +15,7 @@
 
             @if ($errors->has('email'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
+                    {{ $errors->first('email') }}
                 </span>
             @endif
         </div>
@@ -24,7 +25,7 @@
             <input id="password" type="password" class="form-control" name="password" placeholder="Пароль">
             @if ($errors->has('password'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
+                    {{ $errors->first('password') }}
                 </span>
             @endif
         </div>
