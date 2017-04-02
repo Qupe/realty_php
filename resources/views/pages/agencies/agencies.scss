@@ -5,6 +5,15 @@
 .agencies__item-name {
     width: 30%;
 }
+
+.agencies__item:first-child td {
+    border-top: none;
+}
+
 .agencies__item-description {
-    width: 70%;
+    width: 60%;
+}
+
+.agencies__item-adv-count {
+    width: 10%;
 }

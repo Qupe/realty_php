@@ -10,19 +10,10 @@ use App\Models\Agency as Agency;
 
 class AgencyController extends Controller
 {
-    private function get_agency($id) {
-        $agency = new Agency();
-
-        $agency_info = $agency->where('id', $id)->first();
-
-        return $agency_info->getAttributes();
-    }
-
-    public function render($id)
+    public function render(Request $request, $id)
     {
-        return view('pages/agency/agency', [
-            'title' => 'Агентство',
-            'agency' => $this->get_agency($id)
+        return view('pages.agency.agency', [
+            'agency' => Agency::get_one($id)
         ]);
     }
 }

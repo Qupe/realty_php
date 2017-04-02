@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-Mail">
+            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-mail">
 
             @if ($errors->has('email'))
                 <span class="help-block">
