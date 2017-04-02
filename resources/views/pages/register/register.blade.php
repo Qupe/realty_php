@@ -16,7 +16,7 @@
 
             @if ($errors->has('name'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('name') }}</strong>
+                    {{ $errors->first('name') }}
                 </span>
             @endif
         </div>
@@ -26,7 +26,7 @@
 
             @if ($errors->has('email'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
+                   {{ $errors->first('email') }}
                 </span>
             @endif
         </div>
@@ -36,7 +36,7 @@
 
             @if ($errors->has('password'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
+                    {{ $errors->first('password') }}
                 </span>
             @endif
 
@@ -47,7 +47,7 @@
 
             @if ($errors->has('password_confirmation'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('password_confirmation') }}</strong>
+                   {{ $errors->first('password_confirmation') }}
                 </span>
             @endif
         </div>

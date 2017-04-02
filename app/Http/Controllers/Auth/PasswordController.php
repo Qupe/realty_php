@@ -35,7 +35,7 @@ class PasswordController extends Controller
 
     public function showLinkRequestForm()
     {
-        return view('pages.password.email');
+        return view('pages.password-recovery.password-recovery');
     }
 
     public function showResetForm(Request $request, $token = null)
@@ -50,10 +50,10 @@ class PasswordController extends Controller
             return view($this->resetView)->with(compact('token', 'email'));
         }
 
-        if (view()->exists('pages.password.reset')) {
-            return view('pages.password.reset')->with(compact('token', 'email'));
+        if (view()->exists('pages.password-reset.password-reset')) {
+            return view('pages.password-reset.password-reset')->with(compact('token', 'email'));
         }
 
-        return view('pages.password.reset')->with(compact('token', 'email'));
+        return view('pages.password-reset.password-reset')->with(compact('token', 'email'));
     }
 }
