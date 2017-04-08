@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -12,6 +13,10 @@ class CreateAgenciesTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('agencies')) {
+            return;
+        }
+
         Schema::create('agencies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -19,13 +24,14 @@ class CreateAgenciesTable extends Migration
             $table->string('site')->nullable();
             $table->integer('logotype')->nullable();
             $table->text('description')->nullable();
-            $table->integer('owner_id');
+            $table->integer('created_by');
             $table->tinyInteger('active')->default(1);
             $table->string('address')->nullable();
             $table->string('email')->nullable();
             $table->string('coordinates')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**
@@ -35,6 +41,6 @@ class CreateAgenciesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('agencies');
+        Schema::dropIfExists('agencies');
     }
 }

@@ -43,7 +43,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Подтверждеине пароля">
+            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Подтверждение пароля">
 
             @if ($errors->has('password_confirmation'))
                 <span class="help-block">
