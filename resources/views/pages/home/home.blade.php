@@ -1,8 +1,6 @@
 @extends('layouts.container.container')
 
-@section('title')
-    {{ $title }}
-@endsection
+@section('title', 'Главаня')
 
 @section('content')
 

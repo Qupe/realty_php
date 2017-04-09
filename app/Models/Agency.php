@@ -24,9 +24,12 @@ class Agency extends Model
     public static function get_one($id) {
 
         $agency = new static;
-        $agency_info = $agency->where('id', $id)->first()->getAttributes();
 
-        return $agency_info;
+        if ($agency_info = $agency->where('id', $id)->first()) {
+            return $agency_info->getAttributes();
+        }
+
+        return false;
     }
 
 }

@@ -11,6 +11,6 @@ class DevelopersController extends Controller
 {
     public function render()
     {
-        return view('pages/home/home', ['title' => 'Главная']);
+        return view('pages.home.home');
     }
 }

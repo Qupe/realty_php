@@ -12,11 +12,11 @@
 */
 
 Route::get('/', 'Home\HomeController@render');
-Route::get('/agencies/agency/{id}', 'Agency\AgencyController@render');
+Route::get('/agencies/agency/{id}', 'Agency\AgencyController@render')->where('id', '[0-9]+');
 Route::get('/agencies/', 'Agency\AgenciesController@render');
-Route::get('/developer/{id}', 'Developer\DeveloperController@render');
+Route::get('/developer/{id}', 'Developer\DeveloperController@render')->where('id', '[0-9]+');
 Route::get('/developers/', 'Developer\DevelopersController@render');
-Route::get('/realtor/{id}', 'Realtor\RealtorController@render');
+Route::get('/realtor/{id}', 'Realtor\RealtorController@render')->where('id', '[0-9]+');
 Route::get('/realtors', 'Realtor\RealtorsController@render');
 Route::get('/realty', 'Realty\RealtyController@render');
 Route::auth();
