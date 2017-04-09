@@ -2,6 +2,7 @@
     <div class="header__wrap">
         <div class="container">
             <div class="header__line pull-left">
+                <a href="/realty">Недвижимость</a>
                 <a href="/agencies">Агентства</a>
                 <a href="/realtors">Риэлторы</a>
                 <a href="/developers">Застройщики</a>
