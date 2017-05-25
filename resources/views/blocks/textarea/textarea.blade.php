@@ -1,0 +1,1 @@
+<textarea class="{{ isset($class) ? $class : '' }}" name="{{ $prop['code'] }}" id="{{ $prop['code'] }}">{{ old($prop['code'], $prop['current_value']) }}</textarea>

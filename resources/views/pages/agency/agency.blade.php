@@ -5,7 +5,7 @@
 @section('content')
     @include('blocks.return.return', [
         'text' => 'Вернутся к списку агентств',
-        'link' => '/agencies',
+        'link' => @url('/agencies'),
         'align' => 'left'
     ])
     <div class="page-header">

@@ -1,0 +1,17 @@
+.realty-add .realty-add__groups .form-group {
+    display: none;
+
+    &_active {
+        display: block;
+    }
+}
+
+.realty-add__description {
+    height: 150px !important;
+}
+
+.realty-add__unit {
+    padding-top: 7px;
+    padding-left: 0;
+    font-size: 12px;
+}

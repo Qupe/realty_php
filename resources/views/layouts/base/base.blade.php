@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="/css/app.css?v={{ rand() }}" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
-        <title>Недвижимость - @yield('title')</title>
+        <title>@yield('title')</title>
     </head>
     <body>
         @yield('body')

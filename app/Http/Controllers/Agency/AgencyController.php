@@ -10,7 +10,7 @@ class AgencyController extends Controller
 {
     public function render(Request $request, $id)
     {
-        $agency = Agency::get_one($id);
+        $agency = Agency::getOne($id);
 
         if ($agency) {
             return view('pages.agency.agency', [
@@ -18,6 +18,6 @@ class AgencyController extends Controller
             ]);
         }
 
-        abort(500);
+        abort(400);
     }
 }

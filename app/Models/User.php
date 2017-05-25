@@ -20,4 +20,15 @@ class User extends Eloquent  implements AuthenticatableContract, CanResetPasswor
         'password', 'remember_token',
     ];
 
+    public static function getOne($id) {
+
+        $user = new static;
+
+        if ($userData = $user->where('id', $id)->first()) {
+            return $userData->toArray();
+        }
+
+        return false;
+    }
+
 }

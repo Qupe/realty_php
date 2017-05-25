@@ -12,7 +12,7 @@ gulp.task('watch_scss', ['scss'], function () {
 });
 
 gulp.task('watch_scripts', ['scripts'], function () {
-    gulp.watch(['./resources/**/**/**/*.js']);
+    gulp.watch(['./resources/**/**/**/*.js'], ['scripts']);
 });
 
 gulp.task('watch_img', ['images'], function () {
@@ -21,19 +21,20 @@ gulp.task('watch_img', ['images'], function () {
 
 gulp.task('scss', function () {
     return gulp.src('./resources/assets/sass/app.scss')
-        //.pipe(sourcemaps.init())
+        .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(clean_css())
         .pipe(concat('app.css'))
-        //.pipe(sourcemaps.write('.'))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./public/css/'));
 });
 
 gulp.task('scripts', function() {
     return gulp.src('./resources/assets/js/app.js')
-        .pipe(browserify({
-            insertGlobals : true
-        }))
+        .pipe(sourcemaps.init())
+        .pipe(browserify())
+        .on('error',console.log.bind(console))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./public/js/'))
 });
 

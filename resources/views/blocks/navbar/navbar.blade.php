@@ -32,7 +32,7 @@
         </ul>
         <ul class="nav navbar-nav pull-right">
             <li class="navbar-nav__item navbar-nav__item_right">
-                <a href="/add-realty">+ Добавить объявлеине</a>
+                <a href="/realty/add">+ Добавить объявлеине</a>
             </li>
         </ul>
     </div>
