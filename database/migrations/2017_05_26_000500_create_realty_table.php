@@ -13,19 +13,20 @@ class CreateRealtyTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('agencies')) {
+        if (Schema::hasTable('realty')) {
             return;
         }
 
         Schema::create('realty', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('transaction_type');
-            $table->integer('realty_type');
+            $table->string('name', 255);
             $table->integer('price');
-            $table->text('description')->nullable();;
-            $table->integer('image')->nullable();;
-            $table->integer('created_by');
+            $table->text('description')->nullable();
+            $table->unsignedInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->unsignedInteger('owner_id');
+            $table->foreign('owner_id')->references('id')->on('users');
+            $table->tinyInteger('active')->default(1);
             $table->timestamps();
         });
 

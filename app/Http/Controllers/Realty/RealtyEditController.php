@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Realty;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Requests\Realty\RealtyAdd as RealtyAdd;
 use App\Http\Controllers\Controller;
 use App\Models\User as User;
@@ -36,7 +34,7 @@ class RealtyEditController extends Controller
                 $data['properties'] = $properties;
             }
 
-            return view('pages.realty-add.realty-add', $data);
+            return view('pages.realty-add-edit.realty-add-edit', $data);
         }
 
         return abort(404);

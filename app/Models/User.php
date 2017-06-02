@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model as Eloquent;
-use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Eloquent  implements AuthenticatableContract, CanResetPasswordContract
+class User extends Authenticatable
 {
-    use Authenticatable, CanResetPassword;
+    use Notifiable;
 
     protected $fillable = [
         'name', 'email', 'password',

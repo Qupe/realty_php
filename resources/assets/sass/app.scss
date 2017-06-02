@@ -1,25 +1,25 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 // color palette;
-@import "./resources/assets/sass/palette.scss";
+@import "../../../resources/assets/sass/palette.scss";
 
 // layouts
-@import "./resources/views/layouts/base/base";
+@import "../../../resources/views/layouts/base/base";
 
 // pages
-@import "./resources/views/pages/home/home";
-@import "./resources/views/pages/agencies/agencies";
-@import "./resources/views/pages/login/login";
-@import "./resources/views/pages/register/register";
-@import "./resources/views/pages/password-recovery/password-recovery";
-@import "./resources/views/pages/password-reset/password-reset";
-@import "./resources/views/pages/realty/realty";
-@import "./resources/views/pages/realty-object/realty-object";
-@import "./resources/views/pages/realty-add/realty-add";
-@import "./resources/views/pages/realty-edit/realty-edit";
+@import "../../../resources/views/pages/home/home";
+@import "../../../resources/views/pages/agencies/agencies";
+@import "../../../resources/views/pages/login/login";
+@import "../../../resources/views/pages/register/register";
+@import "../../../resources/views/pages/password-recovery/password-recovery";
+@import "../../../resources/views/pages/password-reset/password-reset";
+@import "../../../resources/views/pages/realty/realty";
+@import "../../../resources/views/pages/realty-object/realty-object";
+@import "../../../resources/views/pages/realty-add-edit/realty-add-edit";
 
 // blocks
-@import "./resources/views/blocks/header/header";
-@import "./resources/views/blocks/navbar/navbar";
-@import "./resources/views/blocks/footer/footer";
-@import "./resources/views/blocks/return/return";
+@import "../../../resources/views/blocks/header/header";
+@import "../../../resources/views/blocks/navbar/navbar";
+@import "../../../resources/views/blocks/footer/footer";
+@import "../../../resources/views/blocks/return/return";
+@import "../../../resources/views/blocks/file/file";

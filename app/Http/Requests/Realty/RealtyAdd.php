@@ -12,8 +12,6 @@ class RealtyAdd extends Request
     {
         $authUserId = Auth::user()->id;
         $request->request->add(['created_by' => $authUserId, 'owner_id' => $authUserId]);
-
-
     }
 
     /**
@@ -39,30 +37,30 @@ class RealtyAdd extends Request
     public function rules()
     {
         return [
-            'realty_type' => 'required|exists:property_values,id,property_id,30',
-            'transaction_type' => 'required|exists:property_values,id,property_id,29',
+            'realty_type' => 'required|exists:property_values,value,property_code,realty_type',
+            'transaction_type' => 'required|exists:property_values,value,property_code,transaction_type',
             'price' => 'required',
             'created_by' => 'required|exists:users,id',
             'owner_id' => 'required|exists:users,id',
-            'house_type' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_APARTMENT . ',' . REALTY_TYPE_ROOM . ',' . REALTY_TYPE_HOUSE . ',' . REALTY_TYPE_OFFICE . ',' . REALTY_TYPE_TRADE . '|exists:property_values,id,property_id,2',
+            'house_type' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_APARTMENT . ',' . REALTY_TYPE_ROOM . ',' . REALTY_TYPE_HOUSE . ',' . REALTY_TYPE_OFFICE . ',' . REALTY_TYPE_TRADE . '|exists:property_values,value,property_code,house_type',
             'build_year' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_APARTMENT . ',' . REALTY_TYPE_ROOM . ',' . REALTY_TYPE_HOUSE . ',' . REALTY_TYPE_GARAGE . ',' . REALTY_TYPE_OFFICE,
             'floors_total' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_APARTMENT . ',' . REALTY_TYPE_ROOM . ',' . REALTY_TYPE_HOUSE . ',' . REALTY_TYPE_OFFICE,
-            'room' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_APARTMENT . ',' . REALTY_TYPE_ROOM . ',' . REALTY_TYPE_HOUSE . ',' . REALTY_TYPE_OFFICE . '|exists:property_values,id,property_id,1',
-            'rooms_offered' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_ROOM . '|exists:property_values,id,property_id,19',
+            'room' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_APARTMENT . ',' . REALTY_TYPE_ROOM . ',' . REALTY_TYPE_HOUSE . ',' . REALTY_TYPE_OFFICE . '|exists:property_values,value,property_code,room',
+            'rooms_offered' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_ROOM . '|exists:property_values,value,property_code,rooms_offered',
             'floor' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_APARTMENT . ',' . REALTY_TYPE_ROOM . ',' . REALTY_TYPE_OFFICE,
             'gross_area' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_APARTMENT . ',' . REALTY_TYPE_ROOM . ',' . REALTY_TYPE_HOUSE . ',' . REALTY_TYPE_GARAGE . ',' . REALTY_TYPE_OFFICE,
             'living_area' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_APARTMENT . ',' . REALTY_TYPE_ROOM . ',' . REALTY_TYPE_HOUSE,
-            'price_period' => 'sometimes|required_if:transaction_type,' . TRANSACTION_TYPE_RENT . '|exists:property_values,id,property_id,21',
-            'garage_type' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_GARAGE . '|exists:property_values,id,property_id,25',
-            'garage_status' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_GARAGE . '|exists:property_values,id,property_id,27',
+            'price_period' => 'sometimes|required_if:transaction_type,' . TRANSACTION_TYPE_RENT . '|exists:property_values,value,property_code,price_period',
+            'garage_type' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_GARAGE . '|exists:property_values,value,property_code,garage_type',
+            'garage_status' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_GARAGE . '|exists:property_values,value,property_code,garage_ownership',
             'lot_area' => 'sometimes|required_if:realty_type,' . REALTY_TYPE_AREA,
-            'balcony' => 'exists:property_values,id,property_id,10',
-            'window_view' => 'exists:property_values,id,property_id,11',
-            'renovation' => 'exists:property_values,id,property_id,12',
-            'bathroom_type' => 'exists:property_values,id,property_id,9',
-            'garage_building_type' => 'exists:property_values,id,property_id,26',
-            'lot_type' => 'exists:property_values,id,property_id,23',
-            'description' => 'required|between:200,1000'
+            'balcony' => 'exists:property_values,value,property_code,balcony',
+            'window_view' => 'exists:property_values,value,property_code,window_view',
+            'renovation' => 'exists:property_values,value,property_code,renovation',
+            'bathroom_type' => 'exists:property_values,value,property_code,bathroom_type',
+            'garage_building_type' => 'exists:property_values,value,property_code,garage_building_type',
+            'lot_type' => 'exists:property_values,value,property_code,lot_type',
+            //'description' => 'required|between:200,1000'
         ];
     }
 
