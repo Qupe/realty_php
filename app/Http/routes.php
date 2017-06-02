@@ -35,3 +35,4 @@ Route::post('/realty/edit/{id}', 'Realty\RealtyEditController@edit')->where('id'
 
 /* Login, register, password reset */
 Route::auth();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

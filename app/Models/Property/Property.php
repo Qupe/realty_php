@@ -15,22 +15,19 @@ class Property extends Model
 
         $propertyObject = $properties
             ->select(
-                'properties.id as id',
                 'properties.name as name',
                 'properties.unit as unit',
-                'properties.hint as hint',
                 'properties.code as code',
-                'property_values.value as value',
-                'property_values.id as value_id',
+                'property_values.text as value',
+                'property_values.value as value_id',
                 'property_types.realty_type_id as realty_type',
                 'property_types.transaction_type_id as transaction_type'
             )
-            ->join('property_types', 'properties.id', '=', 'property_types.property_id')
-            ->leftjoin('property_values', 'property_types.property_id', '=', 'property_values.property_id')
+            ->join('property_types', 'properties.code', '=', 'property_types.property_code')
+            ->leftjoin('property_values', 'property_types.property_code', '=', 'property_values.property_code')
             ->get();
 
         foreach ($propertyObject as $key => $item) {
-            $propertyList[$item->code]['id'] = $item->id;
             $propertyList[$item->code]['name'] = $item->name;
             $propertyList[$item->code]['unit'] = $item->unit;
             $propertyList[$item->code]['hint'] = $item->hint;
@@ -59,15 +56,14 @@ class Property extends Model
             ->select(
                 'property_types.transaction_type_id as transaction_type',
                 'property_types.realty_type_id as realty_type',
-                'properties.id as id',
                 'properties.name as name',
                 'properties.code as code',
                 'properties.unit as unit',
-                'property_values.value as value',
-                'property_values.id as value_id'
+                'property_values.text as value',
+                'property_values.value as value_id'
             )
-            ->leftJoin('property_values', 'properties.id', '=', 'property_values.property_id')
-            ->join('property_types', 'properties.id', '=', 'property_types.property_id')
+            ->leftJoin('property_values', 'properties.code', '=', 'property_values.property_code')
+            ->join('property_types', 'properties.code', '=', 'property_types.property_code')
             ->where([
                 ['property_types.realty_type_id', '=', $realty_type_id],
                 ['property_types.transaction_type_id', '=', $transaction_type_id]
@@ -75,7 +71,6 @@ class Property extends Model
             ->get();
 
         foreach ($propertyObject as $item) {
-            $propertyList[$item->code]['id'] = $item->id;
             $propertyList[$item->code]['name'] = $item->name;
             $propertyList[$item->code]['code'] = $item->code;
             $propertyList[$item->code]['unit'] = $item->unit;
@@ -97,19 +92,17 @@ class Property extends Model
 
         $propertyObject = $properties
             ->select(
-                'properties.id as id',
                 'properties.name as name',
                 'properties.unit as unit',
-                'properties.hint as hint',
                 'properties.code as code',
-                'property_values.value as value',
-                'property_values.id as value_id',
+                'property_values.text as value',
+                'property_values.value as value_id',
                 'property_types.realty_type_id as realty_type',
                 'property_types.transaction_type_id as transaction_type',
                 'realty_properties.value as current_value'
             )
-            ->join('property_types', 'properties.id', '=', 'property_types.property_id')
-            ->leftjoin('property_values', 'properties.id', '=', 'property_values.property_id')
+            ->join('property_types', 'properties.code', '=', 'property_types.property_code')
+            ->leftjoin('property_values', 'properties.code', '=', 'property_values.property_code')
             ->leftjoin('realty_properties', function ($join) use ($realty_id) {
                 $join->on('properties.code', '=', 'realty_properties.property_code')
                     ->where('realty_properties.realty_id', '=', $realty_id);
@@ -117,7 +110,6 @@ class Property extends Model
             ->get();
 
         foreach ($propertyObject as $key => $item) {
-            $propertyList[$item->code]['id'] = $item->id;
             $propertyList[$item->code]['name'] = $item->name;
             $propertyList[$item->code]['unit'] = $item->unit;
             $propertyList[$item->code]['hint'] = $item->hint;

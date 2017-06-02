@@ -1,5 +1,5 @@
-/vendor
-/node_modules
+/vendor/
+/node_modules/
 /public/storage
 Homestead.yaml
 Homestead.json
@@ -15,7 +15,8 @@ public/hot
 storage/*.key
 .env.*.php
 .env.php
-app/storage/
-public/css
-public/js
-public/img/
+/storage/
+/public/css/
+/public/js/
+/public/img/
+/public/media/

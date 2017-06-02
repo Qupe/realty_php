@@ -1,0 +1,38 @@
+.file-uploader {
+    padding: 20px 5px;
+    border-style: dashed;
+    font-weight: normal;
+    height: auto;
+}
+
+.file-uploader__title {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.file-uploader__notice {
+    display: block;
+    margin-top: 10px;
+}
+
+.file-uploader__input {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    padding: 0;
+}
+
+.file-uploader__file-list {
+    overflow: hidden;
+    display: block;
+}
+
+.file-uploader__file-list-item img {
+    max-width: 100%;
+}
+
+.file-uploader__description {
+    text-align: center;
+    display: block;
+}

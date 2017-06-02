@@ -1,12 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
 
-class PasswordController extends Controller
+class ResetPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -18,24 +16,21 @@ class PasswordController extends Controller
     | explore this trait and override any methods you wish to tweak.
     |
     */
-
     use ResetsPasswords;
-
-    protected $redirectTo = '/';
-
     /**
-     * Create a new password controller instance.
+     * Where to redirect users after resetting their password.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/';
+    /**
+     * Create a new controller instance.
      *
      * @return void
      */
     public function __construct()
     {
         $this->middleware('guest');
-    }
-
-    public function showLinkRequestForm()
-    {
-        return view('pages.password-recovery.password-recovery');
     }
 
     public function showResetForm(Request $request, $token = null)

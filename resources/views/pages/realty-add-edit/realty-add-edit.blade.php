@@ -24,7 +24,7 @@
             {{ session('success') }}
         </div>
     @endif
-    <form class="form-horizontal realty-add" role="form" method="POST" action="">
+    <form class="form-horizontal realty-add" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group{{ $errors->has('realty_type') ? ' has-error' : '' }}">
             <label for="{{ $properties['realty_type']['code'] }}" class="col-sm-2 control-label">
@@ -379,8 +379,8 @@
                 <b>Стоимость</b>
                 <hr/>
                 <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}"
-                     data-realty-type="[55,56,57,58,59,60,61]"
-                     data-transaction-type="[53,54]">
+                     data-realty-type="[1,2,3,4,5,6,7]"
+                     data-transaction-type="[1,2]">
                     <label for="price" class="col-sm-2 control-label">
                         Цена <span class="text-danger">*</span>
                     </label>
@@ -460,7 +460,20 @@
                 </div>
             </div>
         </div>
+        <b>Фотографии <span class="text-danger">*</span></b>
+        <hr/>
 
+        <div class="form-group{{ $errors->has('media') ? ' has-error' : '' }}">
+            <div class="col-sm-12">
+                @include('blocks.file.file', [
+                    'prop' => $properties['media'] = [
+                        'code' => 'media'
+                    ],
+                    'files' => isset($realty['media']) ? $realty['media'] : '',
+                    'class' => 'form-control'
+                ])
+            </div>
+        </div>
         <b>Описание <span class="text-danger">*</span></b>
         <hr/>
 
@@ -475,7 +488,6 @@
                 ])
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-sm-3">
                 <button class="btn btn-primary">

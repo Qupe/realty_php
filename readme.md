@@ -1,14 +1,14 @@
 # Системные требования
 
 ### Backend
-- PHP >= 5.6.4
+- PHP >= 7.1
     - OpenSSL PHP Extension
     - PDO PHP Extension
     - Mbstring PHP Extension
     - Tokenizer PHP Extension
     - XML PHP Extension
 - Composer
-- MySql >= 5.6.3
+- MySql >= 5.7
 
 ### Frontend
 - Nodejs >= 6.10.1
@@ -25,6 +25,7 @@
 - npm install
 - cp .env.example .env
 - php artisan key:generate
+- php artisan migrate:refresh --seed
 - gulp watch_scss
 - gulp watch_scripts
 - php artisan serve
